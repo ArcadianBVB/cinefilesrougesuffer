@@ -8,9 +8,18 @@
 <body>
     <h2>Liste des Commandes & Proformas</h2>
 
-    <div style="text-align: right; margin-bottom: 10px;">
-        <a href="{{ url_for('commandes.nouvelle_commande') }}" class="btn-ajouter">+ Ajouter une commande</a>
-    </div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0;">
+    <a href="/commandes/nettoyer" 
+       style="color: red; text-decoration: underline; font-weight: bold; font-size: 15px;">
+        Nettoyer les proformas expirés / invalides
+    </a>
+
+    <a href="/commandes/nouvelle" 
+       class="btn btn-success" 
+       style="padding: 8px 15px; font-size: 14px; font-weight: bold;">
+        + Ajouter une commande
+    </a>
+</div>
 
     <form method="get" action="{{ url_for('commandes.rechercher_commandes') }}">
         <fieldset>

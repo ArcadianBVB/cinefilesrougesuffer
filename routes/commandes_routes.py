@@ -243,6 +243,13 @@ def modifier_commande(proforma_id):
 
     return render_template("modifier_commande.html", proforma=proforma)
 
+@commandes_bp.route("/nettoyage", methods=["GET"])
+def lancer_nettoyage_manuel():
+    import subprocess
+    subprocess.run(["python", "nettoyage_proformas.py"])
+    return redirect(url_for('commandes.liste_commandes'))
+
+
 @commandes_bp.route("/rechercher", methods=["GET"])
 def rechercher_commandes():
     nom_client = request.args.get("nom_client", "").lower()
